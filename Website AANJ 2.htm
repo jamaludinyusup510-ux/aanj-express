@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="AANJ EXPRESS.com">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AANJ TRANSPOTER</title>
+    <style>
+        :root {
+            --yellow-sunny: #FFD54A;
+            --peachy-orange: #FFB677;
+            --turquoise-fresh: #1ABC9C;
+            --mint-green: #A8E6CF;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--mint-green);
+            color: #333;
+        }
+
+        header {
+            background-color: var(--mint-green);
+            color: #004d40;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        header img.logo {
+            width: 100px;
+            height: auto;
+            display: block;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0;
+            color: #004d40;
+            font-weight: 700;
+        }
+
+        .tab {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #2E2E2E;
+            box-shadow: inset 0 -2px 0 var(--yellow-sunny);
+        }
+
+        .tab button {
+            flex: 1;
+            background-color: inherit;
+            color: white;
+            padding: 14px 16px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 17px;
+        }
+
+        .tab button:hover {
+            background-color: var(--peachy-orange);
+            color: #333;
+        }
+
+        .tab button.active {
+            background-color: var(--yellow-sunny);
+            color: #333;
+            font-weight: bold;
+        }
+
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            background-color: #f9fefb;
+            border-radius: 10px;
+            box-shadow: 0 0 6px rgba(0,0,0,0.1);
+            margin-top: 15px;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .tabcontent.show {
+            display: block;
+        }
+
+        /* Khusus untuk background di tab Beranda */
+        #Beranda {
+            color: white;
+            background-image: url('download.PNG');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.3);
+            min-height: 450px;
+        }
+
+        /* Overlay gelap supaya teks mudah dibaca */
+        #Beranda::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            z-index: 0;
+        }
+
+        #Beranda > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        a {
+            color: var(--turquoise-fresh);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--peachy-orange);
+            text-decoration: underline;
+        }
+
+        .button-group {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 5px;
+            background-color: var(--turquoise-fresh);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--peachy-orange);
+            color: #333;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            margin-top: 20px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+            color: #333;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 15px;
+            resize: vertical;
+            color: #333;
+        }
+
+        form button {
+            width: 100%;
+            background-color: var(--turquoise-fresh);
+            color: white;
+            padding: 10px;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: var(--peachy-orange);
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .tab button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            header h1 {
+                font-size: 20px;
+            }
+
+            form {
+                width: 100%;
+                padding: 15px;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="ChatGPT Image Aug 10, 2025, 04_37_40 PM.png" alt="Logo Van Service" class="logo" />
+        <h1>AANJ TRANSPOTER</h1>
+    </header>
+
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'Beranda')">Beranda</button>
+        <button class="tablinks" onclick="openTab(event, 'Tentang')">Tentang</button>
+        <button class="tablinks" onclick="openTab(event, 'Kontak')">Kontak</button>
+    </div>
+
+    <div id="Beranda" class="tabcontent show">
+        <h3>Selamat Datang di AANJ TRANSPOTER</h3>
+        <p>Kami menyediakan layanan transportasi barang dan logistik terpercaya di seluruh Malaysia.</p>
+
+        <section>
+            <h4>Layanan Unggulan Kami</h4>
+            <ul>
+                <li>🚚 Penghantaran Pantas 24 Jam</li>
+                <li>🚪 Door to Door Service</li>
+                <li>🛠️ Towing Motor dan Sparepart</li>
+                <li>📦 Penghantaran ke Semua Negeri Termasuk Sabah & Sarawak</li>
+            </ul>
+        </section>
+
+        <section>
+            <h4>Apa Kata Pelanggan Kami</h4>
+            <blockquote style="font-style: italic; color: #ddd;">
+                "Layanan yang sangat cepat dan profesional. Barang sampai dengan selamat dan tepat waktu!" - <strong>Ahmad</strong>
+            </blockquote>
+        </section>
+
+        <section class="button-group">
+            <a href="https://wa.me/601119287785" class="btn" target="_blank" rel="noopener">Hubungi Kami via WhatsApp</a>
+        </section>
+    </div>
+
+    <div id="Tentang" class="tabcontent">
+        <h3>Tentang Kami</h3>
+        <p>AANJ TRANSPOTER adalah penyedia jasa transportasi barang dan logistik yang berdedikasi untuk memberikan pelayanan terbaik kepada pelanggan di seluruh Malaysia.</p>
+
+        <h4>Layanan Kami:</h4>
+        <ul>
+            <li>📦 Perkhidmatan penghantaran ke semua negeri termasuk Sabah & Sarawak</li>
+            <li>🚚 Penghantaran 24 jam (24 Hours Delivery)</li>
+            <li>🚪 Penghantaran dari pintu ke pintu (Door to Door Services)</li>
+            <li>🛵 Towing motor</li>
+            <li>📦 Penghantaran barang pindah rumah atau pejabat</li>
+            <li>📦 Kotak barang / Barang kosmetik</li>
+            <li>🧥 Barang bundle / Tokol bundle</li>
+            <li>🏢 Barang pejabat</li>
+            <li>🔧 Sparepart motor dan kereta</li>
+            <li>🏭 Barang kilang</li>
+            <li>❄️ Barang frozen</li>
+        </ul>
+        <div class="button-group">
+            <a href="https://wa.me/601119287785" class="btn" target="_blank" rel="noopener">WhatsApp Sekarang</a>
+            <a href="tel:01119287785" class="btn">Call Sekarang</a>
+        </div>
+    </div>
+
+    <div id="Kontak" class="tabcontent">
+        <h3>Kontak</h3>
+        <div class="contact-info">
+            <p><strong>Email:</strong> <a href="mailto:jamaludinyusup510@gmail.com">jamaludinyusup510@gmail.com</a></p>
+            <p><strong>No Tel:</strong> <a href="tel:01119287785">01119287785</a></p>
+        </div>
+
+        <form onsubmit="alert('Terima kasih! Kami akan hubungi anda.'); return false;">
+            <h4>Hubungi Kami:</h4>
+            <input type="text" name="nama" placeholder="Nama Anda" required />
+            <input type="tel" name="telefon" placeholder="No Telefon" required />
+            <textarea name="mesej" rows="4" placeholder="Tulis mesej anda..." required></textarea>
+            <button type="submit">Hantar</button>
+        </form>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            const contents = document.querySelectorAll(".tabcontent");
+            contents.forEach((c) => c.classList.remove("show"));
+
+            const tabs = document.querySelectorAll(".tablinks");
+            tabs.forEach((tab) => tab.classList.remove("active"));
+
+            document.getElementById(tabName).classList.add("show");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+</html>
